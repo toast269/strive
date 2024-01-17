@@ -1,4 +1,4 @@
-package com.strive.strive_hunger
+package com.example.stivehunger
 
 import io.flutter.embedding.android.FlutterActivity
 
