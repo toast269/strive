@@ -19,7 +19,11 @@ class MyApp extends StatelessWidget {
         '/': (context) => MainPage(),
         '/home': (context) => HomePage(),
         '/signup': (context) => SignupPage(),
-        '/donate': (context) => DonatePage(0, label: ''),
+        '/donate': (context) => DonatePage(
+              selectedCircle: 0,
+              label: '',
+              imageUrl: '',
+            ),
         '/thankyou': (context) => ThankYouPage(),
         '/nearfood': (context) => NearFoodPage(),
       },
@@ -89,18 +93,26 @@ class MainPage extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/home');
-                    },
-                    child: Text('Login'),
-                  ),
-                  SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/signup');
-                    },
-                    child: Text('Register'),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/home');
+                          },
+                          child: Text('Login'),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/signup');
+                          },
+                          child: Text('Register'),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 10),
                   ElevatedButton(

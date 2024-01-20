@@ -24,6 +24,8 @@ class _HomePageState extends State<HomePage> {
     'Others',
   ];
 
+  String selectedImageUrl = ''; // Added variable to capture selected image URL
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,12 +113,17 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                setState(() {
+                  // Capture the selected image URL
+                  selectedImageUrl = squareImages[selectedCircle];
+                });
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => DonatePage(
-                      selectedCircle,
+                      selectedCircle: selectedCircle,
                       label: circleLabels[selectedCircle],
+                      imageUrl: selectedImageUrl, // Pass the selected image URL
                     ),
                   ),
                 );

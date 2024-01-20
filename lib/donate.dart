@@ -1,10 +1,16 @@
+// donate.dart
 import 'package:flutter/material.dart';
 
 class DonatePage extends StatelessWidget {
   final int selectedCircle;
   final String label;
+  final String imageUrl; // Added imageUrl parameter
 
-  DonatePage(this.selectedCircle, {required this.label});
+  DonatePage({
+    required this.selectedCircle,
+    required this.label,
+    required this.imageUrl, // Added imageUrl parameter
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +20,7 @@ class DonatePage extends StatelessWidget {
         backgroundColor: Colors.green,
       ),
       body: Container(
-        color: Color(0xffedaca8),
+        color: Color(0xffffffff),
         padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,15 +53,14 @@ class DonatePage extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Color(0xffc9625b),
+        color: Color(0xffffffff),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         children: [
           CircleAvatar(
-            backgroundImage: NetworkImage(
-              'https://example.com/circle_image_$selectedCircle.jpg',
-            ),
+            backgroundImage:
+                NetworkImage(imageUrl), // Use the captured imageUrl
             radius: 40,
           ),
           SizedBox(height: 10),
